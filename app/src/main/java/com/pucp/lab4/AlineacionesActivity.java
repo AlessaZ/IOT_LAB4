@@ -29,30 +29,40 @@ public class AlineacionesActivity extends AppCompatActivity {
         setTitle("Hitos");
         setContentView(R.layout.activity_alineaciones);
         ArrayList<Hito> listaHito = new ArrayList<>();
+        ArrayList<String> listaJugadores = new ArrayList<>();
+        Intent intent = getIntent();
+        String comparar =(String) intent.getStringExtra("equipo");
+        RecyclerView recyclerView =findViewById(R.id.recycleView_alineaciones);
+        AlineacionAdapter alineacionAdapter = new AlineacionAdapter(listaJugadores);
+        recyclerView.setAdapter(alineacionAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(AlineacionesActivity.this));
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref = firebaseDatabase.getReference().child("hitos");
+
         ref.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
             @Override
             public void onSuccess(DataSnapshot dataSnapshot) {
                 for (DataSnapshot d : dataSnapshot.getChildren()){
                     listaHito.add(d.getValue(Hito.class));
                 }
+                for(Hito hito : listaHito){
+                    if(hito.getEquipo().equals(comparar)){
+                        String jugador = hito.getNombreJugador()+" "+hito.getApellidoJugador();
+                        if(!listaJugadores.contains(jugador)){
+                            listaJugadores.add(jugador);
+                        }
+                    }
+                }
+                alineacionAdapter.notifyDataSetChanged();
             }
         });
 
-        ArrayList<String> listaJugadores = new ArrayList<>();
-        Intent intent = getIntent();
-        String comparar =(String) intent.getStringExtra("equipo");
 
-        for(Hito hito : listaHito){
-            if(hito.getEquipo().equals(comparar)){
-                listaJugadores.add(hito.getNombreJugador()+" "+hito.getApellidoJugador());
-            }
-        }
 
-        RecyclerView recyclerView =findViewById(R.id.recycleView_alineaciones);
-        AlineacionAdapter alineacionAdapter = new AlineacionAdapter(listaJugadores);
-        recyclerView.setAdapter(alineacionAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(AlineacionesActivity.this));
+
+
+
+
     }
 }
