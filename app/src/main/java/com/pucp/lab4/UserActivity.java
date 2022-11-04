@@ -21,7 +21,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     public void listAlineaciones(View view){
-        Intent intent = new Intent(UserActivity.this,AlineacionesActivity.class);
+        Intent intent = new Intent(UserActivity.this,AlineacionEquipoActivity.class);
         startActivity(intent);
     }
 
