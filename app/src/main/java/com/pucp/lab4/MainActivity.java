@@ -50,10 +50,6 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 }
             });
-            Log.d("msg-fb", idpResponse.getEmail());
-            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-            Log.d("msg-fb", currentUser.getUid());
-            FirebaseAuth.getInstance().signOut(); //Borrar luego
         } else {
             Log.d("msg-fb", "error al loguearse");
         }
