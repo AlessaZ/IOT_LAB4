@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "599319744517",
+    "firebase_url": "https://lab4-iot-d78f4-default-rtdb.firebaseio.com",
+    "project_id": "lab4-iot-d78f4",
+    "storage_bucket": "lab4-iot-d78f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599319744517:android:829e2baddd591402e0cc6c",
+        "android_client_info": {
+          "package_name": "com.pucp.lab4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599319744517-34uhdpf6cs4mfdtns6vtdrhvri3vjnb2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pucp.lab4",
+            "certificate_hash": "7b050b92973abb7e631d6166aef9d944f42bbb41"
+          }
+        },
+        {
+          "client_id": "599319744517-fbeiib0197diadiplcepi517d1fje3fu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTzNERIqu72tEcGtNbFgD5EI9UhZBArtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599319744517-fbeiib0197diadiplcepi517d1fje3fu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
