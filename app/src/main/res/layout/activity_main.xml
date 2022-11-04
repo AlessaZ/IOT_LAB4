@@ -21,6 +21,7 @@
         android:id="@+id/button_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="User"
         android:text="Usuario"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
