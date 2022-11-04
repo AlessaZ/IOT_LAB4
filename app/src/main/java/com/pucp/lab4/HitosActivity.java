@@ -26,6 +26,8 @@ import java.util.ArrayList;
 public class HitosActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     ProgressBar progressBar;
+    boolean primeraVez = true;
+    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,31 +46,17 @@ public class HitosActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         cargando();
         DatabaseReference ref = firebaseDatabase.getReference().child("hitos");
-        ref.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-            @Override
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                terminarCargando();
-                for (DataSnapshot d : dataSnapshot.getChildren()){
-                    listaHito.add(d.getValue(Hito.class));
-                }
-                hitoAdapter.notifyDataSetChanged();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                terminarCargando();
-                Toast.makeText(HitosActivity.this, "No se pudieron cargar los hitos", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Hito hito = snapshot.getValue(Hito.class);
-                if (listaHito.size()>0 && hito != listaHito.get(listaHito.size()-1)){
-                    listaHito.add(hito);
-                    hitoAdapter.notifyItemInserted(listaHito.size()-1);
+                if (primeraVez){
+                    terminarCargando();
+                    primeraVez =false;
                 }
+                Hito hito = snapshot.getValue(Hito.class);
+                listaHito.add(hito);
+                hitoAdapter.notifyItemInserted(listaHito.size()-1);
             }
 
             @Override
