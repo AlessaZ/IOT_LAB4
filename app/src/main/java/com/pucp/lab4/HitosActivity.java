@@ -50,7 +50,7 @@ public class HitosActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Hito hito = snapshot.getValue(Hito.class);
-                if (hito != listaHito.get(listaHito.size()-1)){
+                if (listaHito.size()>0 && hito != listaHito.get(listaHito.size()-1)){
                     listaHito.add(hito);
                     hitoAdapter.notifyItemInserted(listaHito.size()-1);
                 }
