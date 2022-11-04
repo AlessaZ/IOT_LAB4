@@ -28,14 +28,14 @@ public class HitosActivity extends AppCompatActivity {
         setTitle("Hitos");
         setContentView(R.layout.activity_hitos);
         ArrayList<Hito> listaHito = new ArrayList<>();
-
+        HitoAdapter hitoAdapter = new HitoAdapter();
         firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref = firebaseDatabase.getReference().child("hitos");
         ref.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
                 @Override
                 public void onSuccess(DataSnapshot dataSnapshot) {
                     for (DataSnapshot d : dataSnapshot.getChildren()){
-                        Log.d("msg", d.getValue(Hito.class).getHito());
+                        listaHito.add(d.getValue(Hito.class));
                     }
                 }
         });
