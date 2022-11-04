@@ -51,5 +51,7 @@ public class EquiposActivity extends AppCompatActivity {
         });
 
         Intent intent =  new Intent(EquiposActivity.this, AdminActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
