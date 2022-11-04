@@ -2,10 +2,12 @@ package com.pucp.lab4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -41,9 +43,13 @@ public class EquiposActivity extends AppCompatActivity {
         DatabaseReference databaseReference = firebaseDatabase.getReference();
         databaseReference.child("equipo").setValue(equipos).addOnSuccessListener(aVoid -> {
             Log.d("msg","Equipos guardado exitosamente");
+            Toast.makeText(EquiposActivity.this,"Equipos guardados exitosamente",Toast.LENGTH_LONG).show();
+
 
         }).addOnFailureListener(e -> {
             Log.d("msg",e.getMessage());
         });
+
+        Intent intent =  new Intent(EquiposActivity.this, AdminActivity.class);
     }
 }
