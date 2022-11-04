@@ -2,10 +2,91 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textView_apellido"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminActivity">
 
+
+    <EditText
+        android:id="@+id/editText_euipo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nombre de jugador"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toEndOf="@+id/textView_equipo2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="270dp" />
+
+    <TextView
+        android:id="@+id/textView_hito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="Hito"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="432dp" />
+
+    <TextView
+        android:id="@+id/textView_equipo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="Apellido"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="354dp" />
+
+    <TextView
+        android:id="@+id/textView_equipo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="Nombre"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="280dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText_euipo2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintStart_toEndOf="@+id/textView_equipo1" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Hito del jugador"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toEndOf="@+id/textView_hito"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="432dp" />
+
+    <TextView
+        android:id="@+id/textView_equipo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="Equipo"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="206dp" />
 
     <EditText
         android:id="@+id/editText_apellido"
@@ -16,87 +97,36 @@
         android:hint="Apellido de jugador"
         android:inputType="textPersonName"
         android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.389"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toEndOf="@+id/textView_equipo3"
-        app:layout_constraintTop_toBottomOf="@+id/editText_nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_euipo2"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textView_equipo2"
+    <Button
+        android:id="@+id/button_registrarHito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:text="Nombre"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="236dp" />
-
-    <TextView
-        android:id="@+id/textView_equipo3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:text="Apellido"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="310dp" />
-
-    <EditText
-        android:id="@+id/editText_equipo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Equipo"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText_nombre"
+        android:layout_marginTop="80dp"
+        android:text="Registrar"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
-        app:layout_constraintStart_toEndOf="@+id/textView_equipo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registra un hito"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.773" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Hito del jugador"
-        android:inputType="textMultiLine"
-        app:layout_constraintStart_toEndOf="@+id/textView_equipo4"
-        tools:layout_editor_absoluteY="379dp" />
-
-    <TextView
-        android:id="@+id/textView_equipo4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:text="Hito"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="388dp" />
-
-    <TextView
-        android:id="@+id/textView_equipo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:text="Equipo"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="150dp" />
-
-    <EditText
-        android:id="@+id/editText_nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nombre de jugador"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toEndOf="@+id/textView_equipo2"
-        tools:layout_editor_absoluteY="226dp" />
+        app:layout_constraintVertical_bias="0.578" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
