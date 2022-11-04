@@ -3,6 +3,7 @@ package com.pucp.lab4;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +18,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AlineacionEquipoActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
+    Intent intent;
+
     ProgressBar progressBar;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alineacion_equipo);
 
@@ -48,6 +51,13 @@ public class AlineacionEquipoActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void Buttons(View view){
+        intent = new Intent(this, AlineacionesActivity.class);
+        intent.putExtra("equipo", ((Button) view).getText());
+        startActivity(intent);
+    }
+
 
     public void cargando(){
         progressBar.setVisibility(View.VISIBLE);

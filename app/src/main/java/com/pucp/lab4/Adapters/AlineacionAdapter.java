@@ -43,10 +43,7 @@ public class AlineacionAdapter extends RecyclerView.Adapter<AlineacionAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-//        String mostrar = "Nombres de Jugadores: "+"\n-"+hito.getNombreJugador()+" "+hito.getApellidoJugador();
-        TextView textShow = holder.itemView.findViewById(R.id.textViewJugador);
-//        textShow.setText(mostrar);
+        holder.textView.setText(listaJugadores.get(position));
     }
 
     @Override

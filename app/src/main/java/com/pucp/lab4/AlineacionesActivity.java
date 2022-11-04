@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,12 +28,14 @@ public class AlineacionesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Hitos");
+        setTitle("Alineaciones");
         setContentView(R.layout.activity_alineaciones);
         ArrayList<Hito> listaHito = new ArrayList<>();
         ArrayList<String> listaJugadores = new ArrayList<>();
         Intent intent = getIntent();
         String comparar =(String) intent.getStringExtra("equipo");
+        TextView tv = findViewById(R.id.textView_nombreEquipo);
+        tv.setText(comparar);
         RecyclerView recyclerView =findViewById(R.id.recycleView_alineaciones);
         AlineacionAdapter alineacionAdapter = new AlineacionAdapter(listaJugadores);
         recyclerView.setAdapter(alineacionAdapter);
