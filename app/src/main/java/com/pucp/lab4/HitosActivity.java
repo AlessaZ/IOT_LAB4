@@ -28,7 +28,12 @@ public class HitosActivity extends AppCompatActivity {
         setTitle("Hitos");
         setContentView(R.layout.activity_hitos);
         ArrayList<Hito> listaHito = new ArrayList<>();
-        HitoAdapter hitoAdapter = new HitoAdapter();
+
+        RecyclerView recyclerView = findViewById(R.id.recycleView_Hitos);
+        HitoAdapter hitoAdapter = new HitoAdapter(listaHito);
+        recyclerView.setAdapter(hitoAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref = firebaseDatabase.getReference().child("hitos");
         ref.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
@@ -37,13 +42,18 @@ public class HitosActivity extends AppCompatActivity {
                     for (DataSnapshot d : dataSnapshot.getChildren()){
                         listaHito.add(d.getValue(Hito.class));
                     }
+                    hitoAdapter.notifyDataSetChanged();
                 }
         });
 
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                Hito hito = snapshot.getValue(Hito.class);
+                if (hito != listaHito.get(listaHito.size()-1)){
+                    listaHito.add(hito);
+                    hitoAdapter.notifyItemInserted(listaHito.size()-1);
+                }
             }
 
             @Override
@@ -67,10 +77,6 @@ public class HitosActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.recycleView_Hitos);
-        HitoAdapter hitoAdapter = new HitoAdapter(listaHito);
-        recyclerView.setAdapter(hitoAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
     }
 
 }

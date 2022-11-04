@@ -13,7 +13,7 @@ import com.pucp.lab4.R;
 
 import java.util.ArrayList;
 
-public class AlineacionAdapter {
+public class AlineacionAdapter extends RecyclerView.Adapter<AlineacionAdapter.ViewHolder> {
     private ArrayList<String> listaJugadores;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -44,13 +44,13 @@ public class AlineacionAdapter {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        String mostrar = "Nombres de Jugadores: "+"\n-"+hito.getNombreJugador()+" "+hito.getApellidoJugador();
+//        String mostrar = "Nombres de Jugadores: "+"\n-"+hito.getNombreJugador()+" "+hito.getApellidoJugador();
         TextView textShow = holder.itemView.findViewById(R.id.textViewJugador);
-        textShow.setText(mostrar);
+//        textShow.setText(mostrar);
     }
 
     @Override
     public int getItemCount() {
-        return listaHistorial.size();
+        return listaJugadores.size();
     }
 }
