@@ -7,7 +7,7 @@
     tools:context=".EquiposActivity">
 
     <EditText
-        android:id="@+id/editText_euipo2"
+        android:id="@+id/editText_equipo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -40,9 +40,9 @@
         android:layout_marginStart="56dp"
         android:text="Equipo 2"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_euipo2"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_equipo2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText_euipo2"
+        app:layout_constraintTop_toTopOf="@+id/editText_equipo2"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -73,13 +73,14 @@
         android:id="@+id/button_agregarEquipos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="AgregarEquipos"
         android:text="Agregar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_euipo2"
+        app:layout_constraintTop_toBottomOf="@+id/editText_equipo2"
         app:layout_constraintVertical_bias="0.242" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
