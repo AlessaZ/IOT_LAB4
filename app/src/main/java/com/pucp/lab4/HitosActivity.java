@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.google.firebase.database.core.view.View;
+
 public class HitosActivity extends AppCompatActivity {
 
     @Override
@@ -11,4 +13,6 @@ public class HitosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hitos);
     }
+
+
 }

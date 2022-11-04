@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/editText_equipo2"
+        android:id="@+id/editText_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -53,9 +53,9 @@
         android:layout_marginStart="56dp"
         android:text="Nombre"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_equipo2"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_nombre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText_equipo2"
+        app:layout_constraintTop_toTopOf="@+id/editText_nombre"
         tools:ignore="MissingConstraints" />
 
     <Spinner
@@ -106,9 +106,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toEndOf="@+id/textView_equipo3"
-        app:layout_constraintTop_toBottomOf="@+id/editText_equipo2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_nombre" />
 
     <Button
+        android:onClick="saveHito"
         android:id="@+id/button_registrarHito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

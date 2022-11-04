@@ -44,14 +44,13 @@ public class EquiposActivity extends AppCompatActivity {
         databaseReference.child("equipo").setValue(equipos).addOnSuccessListener(aVoid -> {
             Log.d("msg","Equipos guardado exitosamente");
             Toast.makeText(EquiposActivity.this,"Equipos guardados exitosamente",Toast.LENGTH_LONG).show();
-
-
+            Intent intent =  new Intent(EquiposActivity.this, AdminActivity.class);
+            startActivity(intent);
+            finish();
         }).addOnFailureListener(e -> {
             Log.d("msg",e.getMessage());
         });
 
-        Intent intent =  new Intent(EquiposActivity.this, AdminActivity.class);
-        startActivity(intent);
-        finish();
+
     }
 }
