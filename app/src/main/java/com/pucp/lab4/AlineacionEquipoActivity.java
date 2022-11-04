@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -15,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AlineacionEquipoActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
-
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,4 +48,13 @@ public class AlineacionEquipoActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void cargando(){
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void terminarCargando(){
+        progressBar.setVisibility(View.GONE);
+    }
+
 }
