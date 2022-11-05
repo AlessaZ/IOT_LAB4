@@ -17,54 +17,24 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AlineacionEquipoActivity extends AppCompatActivity {
 
-    FirebaseDatabase firebaseDatabase;
     Intent intent;
 
-    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alineacion_equipo);
 
+        Intent intent = getIntent();
         Button btn_equipo1 = findViewById(R.id.button_equipo1);
         Button btn_equipo2 = findViewById(R.id.button_equipo2);
-
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.getReference().child("equipo").get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-            @Override
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                int i=0;
-                for ( DataSnapshot d : dataSnapshot.getChildren()){
-                    if(i==0){
-                        btn_equipo1.setText(d.getValue().toString());
-                    }else{
-                        btn_equipo2.setText(d.getValue().toString());
-                    }
-                    i++;
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(AlineacionEquipoActivity.this, "No se pudo establecer conexión", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
+        btn_equipo1.setText(intent.getStringExtra("equipo1"));
+        btn_equipo2.setText(intent.getStringExtra("equipo2"));
     }
 
     public void Buttons(View view){
         intent = new Intent(this, AlineacionesActivity.class);
         intent.putExtra("equipo", ((Button) view).getText());
         startActivity(intent);
-    }
-
-
-    public void cargando(){
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    public void terminarCargando(){
-        progressBar.setVisibility(View.GONE);
     }
 
 }

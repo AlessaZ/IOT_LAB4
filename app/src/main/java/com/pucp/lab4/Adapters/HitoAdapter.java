@@ -49,7 +49,7 @@ public class HitoAdapter extends RecyclerView.Adapter<HitoAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Hito hito = listaHito.get(position);
         String mostrarEquipo= "Equipo: "+ hito.getEquipo();
-        String mostrarJugador= "Jugador: "+ hito.getNombreJugador() + "" + hito.getApellidoJugador();
+        String mostrarJugador= "Jugador: "+ hito.getNombreJugador() + " " + hito.getApellidoJugador();
         String mostrarHito= "Hito: "+ hito.getHito();
 
         TextView textShowEquipo = holder.itemView.findViewById(R.id.textEquipo);
